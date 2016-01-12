@@ -1,14 +1,14 @@
 <?php 
 require_once '../include.php';
 checkLogined();
-$order=$_REQUEST['order']?$_REQUEST['order']:null;
-$orderBy=$order?"order by p.".$order:null;
-$keywords=$_REQUEST['keywords']?$_REQUEST['keywords']:null;
-$where=$keywords?"where p.pName like '%{$keywords}%'":null;
+//$order=$_REQUEST['order']?$_REQUEST['order']:null;
+//$orderBy=$order?"order by p.".$order:null;
+//$keywords=$_REQUEST['keywords']?$_REQUEST['keywords']:null;
+//$where=$keywords?"where p.pName like '%{$keywords}%'":null;
 //得到数据库中所有商品
 $sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from imooc_pro as p join imooc_cate c on p.cId=c.id {$where}  ";
 $totalRows=getResultNum($sql);
-$pageSize=2;
+$pageSize=10;
 $totalPage=ceil($totalRows/$pageSize);
 $page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
 if($page<1||$page==null||!is_numeric($page))$page=1;

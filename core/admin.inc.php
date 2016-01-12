@@ -20,7 +20,7 @@ function checkLogined(){
  * @return string
  */
 function addAdmin(){
-	$arr=$_POST;
+	$arr=$_POST;        //获取传入的数据，包括名字密码和邮箱
 	$arr['password']=md5($_POST['password']);
 	if(insert("imooc_admin",$arr)){
 		$mes="添加成功!<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>查看管理员列表</a>";
