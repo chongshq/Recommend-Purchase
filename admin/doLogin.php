@@ -5,8 +5,9 @@ $username=addslashes($username);
 $password=md5($_POST['password']);
 $verify=$_POST['verify'];
 $verify1=$_SESSION['verify'];
-$autoFlag=$_POST['autoFlag'];
-if(1){
+$autoFlag=0;
+//$autoFlag=$_POST['autoFlag'];
+if($verify==$verify1){
 	$sql="select * from imooc_admin where username='{$username}' and password='{$password}'";
 	$row=checkAdmin($sql);
 	if($row){
