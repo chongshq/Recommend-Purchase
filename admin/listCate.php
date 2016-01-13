@@ -1,9 +1,10 @@
 <?php 
+error_reporting(E_ALL^E_NOTICE);
 require_once '../include.php';
 $page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
 $sql="select * from imooc_cate";
 $totalRows=getResultNum($sql);
-$pageSize=2;
+$pageSize=10;
 $totalPage=ceil($totalRows/$pageSize);
 if($page<1||$page==null||!is_numeric($page))$page=1;
 if($page>=$totalPage)$page=$totalPage;

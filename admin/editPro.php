@@ -46,7 +46,7 @@ $proInfo=getProById($id);
 <body>
 <h3>添加商品</h3>
 <form action="doAdminAction.php?act=editPro&id=<?php echo $id;?>" method="post" enctype="multipart/form-data">
-<table width="70%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
+<table width="70%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#E1E0E0">
 	<tr>
 		<td align="right">商品名称</td>
 		<td><input type="text" name="pName"  value="<?php echo $proInfo['pName'];?>"/></td>
