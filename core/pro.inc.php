@@ -45,7 +45,7 @@ function addPro(){
 			thumb($path."/".$uploadFile['name'],"../image_800/".$uploadFile['name'],800,800);
 		}
 	}
-	$res=insert("imooc_pro",$arr);
+	$res=insert("se_pro",$arr);
 	$pid=getInsertId();
 	if($res&&$pid){
 		foreach($uploadFiles as $uploadFile){
@@ -92,7 +92,7 @@ function editPro($id){
 		}
 	}
 	$where="id={$id}";
-	$res=update("imooc_pro",$arr,$where);
+	$res=update("se_pro",$arr,$where);
 	$pid=$id;
 	if($res&&$pid){
 		if($uploadFiles &&is_array($uploadFiles)){
@@ -128,7 +128,7 @@ function editPro($id){
 
 function delPro($id){
 	$where="id=$id";
-	$res=delete("imooc_pro",$where);
+	$res=delete("se_pro",$where);
 	$proImgs=getAllImgByProId($id);
 	if($proImgs&&is_array($proImgs)){
 		foreach($proImgs as $proImg){
@@ -151,7 +151,7 @@ function delPro($id){
 		}
 	}
 	$where1="pid={$id}";
-	$res1=delete("imooc_album",$where1);
+	$res1=delete("se_album",$where1);
 	if($res&&$res1){
 		$mes="删除成功!<br/><a href='listPro.php' target='mainFrame'>查看商品列表</a>";
 	}else{
@@ -166,7 +166,7 @@ function delPro($id){
  * @return array
  */
 function getAllProByAdmin(){
-	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from imooc_pro as p join imooc_cate c on p.cId=c.id";
+	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from se_pro as p join se_cate c on p.cId=c.id";
 	$rows=fetchAll($sql);
 	return $rows;
 }
@@ -177,7 +177,7 @@ function getAllProByAdmin(){
  * @return array
  */
 function getAllImgByProId($id){
-	$sql="select a.albumPath from imooc_album a where pid={$id}";
+	$sql="select a.albumPath from se_album a where pid={$id}";
 	$rows=fetchAll($sql);
 	return $rows;
 }
@@ -188,7 +188,7 @@ function getAllImgByProId($id){
  * @return array
  */
 function getProById($id){
-		$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from imooc_pro as p join imooc_cate c on p.cId=c.id where p.id={$id}";
+		$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from se_pro as p join se_cate c on p.cId=c.id where p.id={$id}";
 		$row=fetchOne($sql);
 		return $row;
 }
@@ -198,7 +198,7 @@ function getProById($id){
  * @return array
  */
 function checkProExist($cid){
-	$sql="select * from imooc_pro where cId={$cid}";
+	$sql="select * from se_pro where cId={$cid}";
 	$rows=fetchAll($sql);
 	return $rows;
 }
@@ -208,7 +208,7 @@ function checkProExist($cid){
  * @return array
  */
 function getAllPros(){
-	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from imooc_pro as p join imooc_cate c on p.cId=c.id ";
+	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from se_pro as p join se_cate c on p.cId=c.id ";
 	$rows=fetchAll($sql);
 	return $rows;
 }
@@ -219,7 +219,7 @@ function getAllPros(){
  * @return Array
  */
 function getProsByCid($cid){
-	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from imooc_pro as p join imooc_cate c on p.cId=c.id where p.cId={$cid} limit 4";
+	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from se_pro as p join se_cate c on p.cId=c.id where p.cId={$cid} limit 4";
 	$rows=fetchAll($sql);
 	return $rows;
 }
@@ -230,7 +230,7 @@ function getProsByCid($cid){
  * @return array
  */
 function getSmallProsByCid($cid){
-	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from imooc_pro as p join imooc_cate c on p.cId=c.id where p.cId={$cid} limit 4,4";
+	$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from se_pro as p join se_cate c on p.cId=c.id where p.cId={$cid} limit 4,4";
 	$rows=fetchAll($sql);
 	return $rows;
 }
@@ -240,7 +240,7 @@ function getSmallProsByCid($cid){
  * @return array
  */
 function getProInfo(){
-	$sql="select id,pName from imooc_pro order by id asc";
+	$sql="select id,pName from se_pro order by id asc";
 	$rows=fetchAll($sql);
 	return $rows;
 }

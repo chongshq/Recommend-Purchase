@@ -13,7 +13,7 @@ function reg(){
 		return "注册失败";
 	}
 //	print_r($arr);exit;
-	if(insert("imooc_user", $arr)){
+	if(insert("se_user", $arr)){
 		$mes="注册成功!<br/>3秒钟后跳转到登陆页面!<meta http-equiv='refresh' content='3;url=login.php'/>";
 	}else{
 		$filename="uploads/".$uploadFile[0]['name'];
@@ -30,7 +30,7 @@ function login(){
 	//$username=addslashes($username);
 	$username=mysql_escape_string($username);
 	$password=md5($_POST['password']);
-	$sql="select * from imooc_user where username='{$username}' and password='{$password}'";
+	$sql="select * from se_user where username='{$username}' and password='{$password}'";
 	//$resNum=getResultNum($sql);
 	$row=fetchOne($sql);
 	//echo $resNum;
