@@ -29,7 +29,7 @@ if(!($cates && is_array($cates))){
 			<div class="rightArea">
 				欢迎来到XX网！
 				<?php if($_SESSION['loginFlag']):?>
-				<span>欢迎您</span><?php echo $_SESSION['username'];?>
+				<span>欢迎您</span><a href="personalCenter.php"><?php echo $_SESSION['username'];?></a>
 				<a href="doAction.php?act=userOut">[退出]</a>
 				<?php else:?>
 				<a href="login.php">[登录]</a><a href="reg.php">[免费注册]</a>

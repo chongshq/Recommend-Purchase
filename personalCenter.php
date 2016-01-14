@@ -6,14 +6,14 @@ checkUserLogined();
 <html>
 <head>
 <meta charset="utf-8">
-<title>电商后台管理系统</title>
+<title>个人中心</title>
 <link rel="stylesheet" href="styles/backstage.css">
 </head>
 
 <body>
     <div class="head">
             
-            <h3 class="head_text fr">电商后台管理系统</h3>
+            <h3 class="head_text fr">个人中心</h3>
     </div>
     <div class="operation_user clearfix">
        <!--   <div class="link fl"><a href="#">慕课</a><span>&gt;&gt;</span><a href="#">商品管理</a><span>&gt;&gt;</span>商品修改</div>-->
@@ -52,6 +52,14 @@ checkUserLogined();
                         <dl id="menu1" style="display:none;">
                             <dd><a href="apply.php" target="mainFrame">申请卖二手</a></dd>
                             <dd><a href="listApply.php" target="mainFrame">查看申请状态</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+
+                        <h3 onclick="show('menu2','change2')"><span onclick="show('menu2','change2')" id="change2">+</span>订单操作</h3>
+                        <dl id="menu2" style="display:none;">
+                            <dd><a href="center.php" target="mainFrame">查询订单状态</a></dd>
+                           
                         </dl>
                     </li>
                     

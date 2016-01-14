@@ -45,7 +45,13 @@ $(document).ready(function() {
 				<a href="#" class="collection">收藏慕课</a>
 			</div>
 			<div class="rightArea">
-				欢迎来到慕课网！<a href="login.php">[登录]</a><a href="reg.php">[免费注册]</a>
+				欢迎来到XX网！
+				<?php if($_SESSION['loginFlag']):?>
+				<span>欢迎您</span><?php echo $_SESSION['username'];?>
+				<a href="doAction.php?act=userOut">[退出]</a>
+				<?php else:?>
+				<a href="login.php">[登录]</a><a href="reg.php">[免费注册]</a>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>
@@ -166,7 +172,7 @@ $(document).ready(function() {
 			<div class="des_content">
 				<h3 class="des_content_tit"><?php echo $proInfo['pName'];?></h3>
 				<div class="dl clearfix">
-					<div class="dt">慕课价</div>
+					<div class="dt">价格</div>
 					<div class="dd clearfix"><span class="des_money"><em>￥</em><?php echo $proInfo['iPrice'];?></span></div>
 				</div>
 				<div class="dl clearfix">
@@ -240,7 +246,7 @@ $(document).ready(function() {
 							<div class="des_number">
 								<div class="reduction">-</div>
 								<div class="des_input">
-									<input type="text">
+									<input type="text" id="itemNum" value="1"/>
 								</div>
 								<div class="plus">+</div>
 							</div>
@@ -252,9 +258,10 @@ $(document).ready(function() {
 					已选择 <span>"白色|WIFI 16G"</span>
 				</div>
 				<div class="shop_buy">
-					<a href="#" class="shopping_btn"></a>
+				    <a href="javascript:gotoPay()" class="buy_btn"></a>
+					
 					<span class="line"></span>
-					<a href="#" class="buy_btn"></a>
+					<a href="#" class="shopping_btn"></a>
 				</div>
 				<div class="notes">
 					注意：此商品可提供普通发票，不提供增值税发票。
@@ -431,4 +438,10 @@ $(document).ready(function() {
 	<p class="web"><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a></p>
 </div>
 </body>
+<script type="text/javascript">
+function gotoPay(){
+    var number=document.getElementById("itemNum").value;
+	window.location='pay.php?itemId=<?php echo $proInfo['id'];?>&itemName=<?php echo $proInfo['pName'];?>&price=<?php echo $proInfo['iPrice'];?>&userId=<?php echo $_SESSION['username'];?>&itemNum='+number;
+}
+</script>
 </html>

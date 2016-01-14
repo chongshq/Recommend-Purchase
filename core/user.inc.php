@@ -1,6 +1,7 @@
 <?php 
 function reg(){
 	$arr=$_POST;
+
 	$arr['password']=md5($_POST['password']);
 	$arr['regTime']=time();
 	$uploadFile=uploadFile();
@@ -35,6 +36,7 @@ function login(){
 	//echo $resNum;
 	if($row){
 		$_SESSION['loginFlag']=$row['id'];
+		$_SESSION['id']=$row['id'];
 		$_SESSION['username']=$row['username'];
 		$mes="登陆成功！<br/>3秒钟后跳转到首页<meta http-equiv='refresh' content='3;url=index.php'/>";
 	}else{
@@ -43,7 +45,9 @@ function login(){
 	return $mes;
 }
 function checkUserLogined(){
-	if($_SESSION['username']==""){
+
+	if($_SESSION['username']==""&&$_COOKIE['username']==""){
+
 		alertMes("请先登陆","login.php");
 	}
 }

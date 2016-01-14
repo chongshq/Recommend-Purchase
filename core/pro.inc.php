@@ -1,8 +1,37 @@
 <?php 
+function generateOrder($userid){
+	$arr=$_REQUEST;
+	//$arr['orderId']=2;
+
+	$arr['userId']=$userid;
+	$arr['address']="default address";
+	$arr['status']="待付款";
+	$arr['time']=time();
+	$single=$arr['price'];
+	$arr['price']=$single * $arr['itemNum'];
+	$arra = [
+    "userId" => $arr['userId'],
+    "itemId" => $arr['itemId'],
+    "itemName" => $arr['itemName'],
+    "itemNum" => $arr['itemNum'],
+    "time" => $arr['time'],
+    "price" => $arr['price'],
+    "address" => $arr['address'],
+    "status" => $arr['status'],
+    ];
+    $res=insert("orders",$arra);
+    echo  $res.$arr['userId']."+".$arr['itemId']."+".$arr['itemName']."+".$arr['itemNum']."+".$arr['time']."+".$arr['price']."+".$arr['address']."+".$arr['status'];
+}
+function getAllOrderByUserId($userId){
+	$sql="select * from stu_1352890.orders where userId={$userId}";
+	$rows=fetchAll($sql);
+	return $rows;
+}
 /**
  * 添加商品
  * @return string
  */
+
 function addPro(){
 	$arr=$_POST;
 	$arr['pubTime']=time();
