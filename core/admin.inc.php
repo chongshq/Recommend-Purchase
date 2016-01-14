@@ -20,7 +20,7 @@ function checkLogined(){
  * @return string
  */
 function addAdmin(){
-	$arr=$_POST;
+	$arr=$_POST;        //获取传入的数据，包括名字密码和邮箱
 	$arr['password']=md5($_POST['password']);
 	if(insert("imooc_admin",$arr)){
 		$mes="添加成功!<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>查看管理员列表</a>";
@@ -162,4 +162,37 @@ function editUser($id){
 		$mes="编辑失败!<br/><a href='listUser.php'>请重新修改</a>";
 	}
 	return $mes;
+}
+
+/**
+ * 通过申请
+ * @param int $id
+ * @return string
+ */
+function passApply($id){
+	$arr['app_status'] = 1010;
+	if(update("apply",$arr,"id={$id}")){
+		$mes="已通过该请求!<br/><a href='auditingApply.php'>查看申请列表</a>";
+	}else{
+		$mes="操作失败!<br/><a href='auditingApply.php'>请重新修改</a>";
+	}
+	return $mes;
+
+}
+
+
+/**
+ * 拒绝申请
+ * @param int $id
+ * @return string
+ */
+function refuseApply($id){
+		$arr['app_status'] = 1011;
+	if(update("apply",$arr,"id={$id}")){
+		$mes="已拒绝该请求!<br/><a href='auditingApply.php'>查看申请列表</a>";
+	}else{
+		$mes="操作失败!<br/><a href='auditingApply.php'>请重新修改</a>";
+	}
+	return $mes;
+
 }

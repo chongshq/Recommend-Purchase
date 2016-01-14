@@ -34,6 +34,10 @@ if($act=="logout"){
 	$mes=doWaterText($id);
 }elseif($act=="waterPic"){
 	$mes=doWaterPic($id);
+}elseif($act=="passApply"){
+	$mes=passApply($id);
+}elseif($act=="refuseApply"){
+	$mes=refuseApply($id);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

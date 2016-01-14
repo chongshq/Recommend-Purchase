@@ -29,20 +29,17 @@
 	<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
 		<tr>
 			<th>系统名称</th>
-			<td>慕课网电子商城</td>
+			<td>电商平台</td>
 		</tr>
 		<tr>
 			<th>开发团队</th>
-			<td>King&慕课网的小伙伴</td>
+			<td>软件工程小组</td>
 		</tr>
 		<tr>
-			<th>公司网址</th>
-			<td><a href="http://www.imooc.com">http://www.imooc.com</a></td>
+			<th>团队成员</th>
+			<td>张君义、李顺然、钱重书</td>
 		</tr>
-		<tr>
-			<th>成功案例</th>
-			<td>慕课网</td>
-		</tr>
+		
 	</table>
 </center>
 

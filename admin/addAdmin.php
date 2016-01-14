@@ -7,7 +7,7 @@
 <body>
 <h3>添加管理员</h3>
 <form action="doAdminAction.php?act=addAdmin" method="post">
-<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
+<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#E1E0E0">
 	<tr>
 		<td align="right">管理员名称</td>
 		<td><input type="text" name="username" placeholder="请输入管理员名称"/></td>

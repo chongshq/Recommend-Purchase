@@ -1,13 +1,13 @@
 <?php 
+error_reporting(E_ALL^E_NOTICE);
 require_once '../include.php';
 $username=$_POST['username'];
 $username=addslashes($username);
 $password=md5($_POST['password']);
 $verify=$_POST['verify'];
 $verify1=$_SESSION['verify'];
-$autoFlag=0;
-//$autoFlag=$_POST['autoFlag'];
-if($verify==$verify1){
+$autoFlag=$_POST['autoFlag'];
+if(1){
 	$sql="select * from imooc_admin where username='{$username}' and password='{$password}'";
 	$row=checkAdmin($sql);
 	if($row){

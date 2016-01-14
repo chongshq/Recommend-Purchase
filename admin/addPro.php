@@ -43,7 +43,7 @@ if(!$rows){
 <body>
 <h3>添加商品</h3>
 <form action="doAdminAction.php?act=addPro" method="post" enctype="multipart/form-data">
-<table width="70%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
+<table width="70%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#E1E0E0">
 	<tr>
 		<td align="right">商品名称</td>
 		<td><input type="text" name="pName"  placeholder="请输入商品名称"/></td>
@@ -72,7 +72,7 @@ if(!$rows){
 	</tr>
 	<tr>
 		<td align="right">商品慕课价</td>
-		<td><input type="text" name="iPrice"  placeholder="请输入商品慕课价"/></td>
+		<td><input type="text" name="iPrice"  placeholder="请输入本站价格"/></td>
 	</tr>
 	<tr>
 		<td align="right">商品描述</td>

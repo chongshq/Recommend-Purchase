@@ -1,12 +1,17 @@
 <?php 
 require_once 'include.php';
 $act=$_REQUEST['act'];
+$id=$_REQUEST['id'];
 if($act==="reg"){
 	$mes=reg();
 }elseif($act==="login"){
 	$mes=login();
 }elseif($act==="userOut"){
 	userOut();
+}elseif($act==="userApply"){
+	$mes=userApply();
+}elseif($act==="cancelApply"){
+	$mes=cancelApply($id);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

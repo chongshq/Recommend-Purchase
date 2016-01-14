@@ -42,6 +42,11 @@ function login(){
 	}
 	return $mes;
 }
+function checkUserLogined(){
+	if($_SESSION['username']==""){
+		alertMes("请先登陆","login.php");
+	}
+}
 
 function userOut(){
 	$_SESSION=array();
@@ -51,6 +56,33 @@ function userOut(){
 
 	session_destroy();
 	header("location:index.php");
+}
+
+function userApply(){
+	$arr = $_POST;
+	$arr['app_status'] = 1001;
+	if($a = insert("apply",$arr)) {
+		$mes="申请成功!<br/><a href='apply.php'>继续添加</a>|<a href='listApply.php'>查看申请状态</a>";
+	}
+	else{
+		$mes="申请失败!<br/><a href='apply.php'>重新申请</a>";
+	}
+	return $mes;
+}
+
+function listApply(){
+	$sql="select * from apply";
+	$rows = fetchAll($sql);
+	return $rows;
+}
+
+function cancelApply($id){
+	if(delete("apply","id={$id}")){
+		$mes="取消申请成功!<br/><a href='listApply.php'>查看申请列表</a>";
+	}else{
+		$mes="取消申请失败!<br/><a href='listApply.php'>请重新操作</a>";
+	}
+	return $mes;
 }
 
 

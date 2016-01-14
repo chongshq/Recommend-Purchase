@@ -32,6 +32,7 @@ function insert($table,$array){
  * @return number
  */
 function update($table,$array,$where=null){
+	$str=null;
 	foreach($array as $key=>$val){
 		if($str==null){
 			$sep="";

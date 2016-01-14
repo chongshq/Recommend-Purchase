@@ -1,4 +1,5 @@
 <?php 
+error_reporting(E_ALL^E_NOTICE);
 require_once 'include.php';
 $cates=getAllcate();
 if(!($cates && is_array($cates))){
@@ -23,10 +24,10 @@ if(!($cates && is_array($cates))){
 	<div class="topBar">
 		<div class="comWidth">
 			<div class="leftArea">
-				<a href="#" class="collection">收藏慕课</a>
+				<a href="#" class="collection">收藏本站</a>
 			</div>
 			<div class="rightArea">
-				欢迎来到慕课网！
+				欢迎来到XX网！
 				<?php if($_SESSION['loginFlag']):?>
 				<span>欢迎您</span><?php echo $_SESSION['username'];?>
 				<a href="doAction.php?act=userOut">[退出]</a>
@@ -39,15 +40,21 @@ if(!($cates && is_array($cates))){
 	<div class="logoBar">
 		<div class="comWidth">
 			<div class="logo fl">
-				<a href="#"><img src="images/logo.jpg" alt="慕课网"></a>
+				
 			</div>
 			<div class="search_box fl">
 				<input type="text" class="search_text fl">
 				<input type="button" value="搜 索" class="search_btn fr">
 			</div>
+
+		
+            <a href="personalCenter.php" class="search_btn fr myapply">我要卖二手</a> 
+
 			<div class="shopCar fr">
 				<span class="shopText fl">购物车</span>
 				<span class="shopNum fl">0</span>
+
+
 			</div>
 		</div>
 	</div>
@@ -157,6 +164,7 @@ if(!($cates && is_array($cates))){
 	<div class="rightArea">
 		<div class="shopList_top clearfix">
 		<?php 
+		//error_reporting(E_ALL^E_NOTICE);
 			$pros=getProsByCid($cate['id']);
 			if($pros &&is_array($pros)):
 			foreach($pros as $pro):
@@ -177,6 +185,7 @@ if(!($cates && is_array($cates))){
 		</div>
 		<div class="shopList_sm clearfix">
 		<?php 
+		
 			$prosSmall=getSmallProsByCid($cate['id']);
 			if($prosSmall &&is_array($prosSmall)):
 			foreach($prosSmall as $proSmall):
@@ -201,9 +210,9 @@ if(!($cates && is_array($cates))){
 <?php endforeach;?>
 <div class="hr_25"></div>
 <div class="footer">
-	<p><a href="#">慕课简介</a><i>|</i><a href="#">慕课公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
+	<p><a href="#">简介</a><i>|</i><a href="#">公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
 	<p>Copyright &copy; 2006 - 2014 慕课版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：123456789123</p>
-	<p class="web"><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a></p>
+	<p class="web"><a href="#"><img src="images/webLogo.jpg" alt="logo"></a></p>
 </div>
 </body>
 </html>

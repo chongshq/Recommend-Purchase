@@ -13,7 +13,7 @@ $row=fetchOne($sql);
 <body>
 <h3>编辑管理员</h3>
 <form action="doAdminAction.php?act=editAdmin&id=<?php echo $id;?>" method="post">
-<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
+<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#E1E0E0">
 	<tr>
 		<td align="right">管理员名称</td>
 		<td><input type="text" name="username" placeholder="<?php echo $row['username'];?>"/></td>

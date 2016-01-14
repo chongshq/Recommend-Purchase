@@ -1,6 +1,7 @@
 <?php 
+error_reporting(E_ALL^E_NOTICE);
 require_once '../include.php';
-$pageSize=2;
+$pageSize=5;
 $page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
 $rows=getAdminByPage($page,$pageSize);
 //$sql="select * from imooc_admin";
