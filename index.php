@@ -29,7 +29,7 @@ if(!($cates && is_array($cates))){
 			<div class="rightArea">
 				欢迎来到XX网！
 				<?php if($_SESSION['loginFlag']):?>
-				<span>欢迎您</span><?php echo $_SESSION['username'];?>
+				<span>欢迎您</span><a href="center.php"><?php echo $_SESSION['username'];?></a>
 				<a href="doAction.php?act=userOut">[退出]</a>
 				<?php else:?>
 				<a href="login.php">[登录]</a><a href="reg.php">[免费注册]</a>
@@ -158,7 +158,7 @@ if(!($cates && is_array($cates))){
 	<div class="rightArea">
 		<div class="shopList_top clearfix">
 		<?php 
-		error_reporting(E_ALL^E_NOTICE);
+		//error_reporting(E_ALL^E_NOTICE);
 			$pros=getProsByCid($cate['id']);
 			if($pros &&is_array($pros)):
 			foreach($pros as $pro):
@@ -179,7 +179,7 @@ if(!($cates && is_array($cates))){
 		</div>
 		<div class="shopList_sm clearfix">
 		<?php 
-		error_reporting(E_ALL^E_NOTICE);
+		
 			$prosSmall=getSmallProsByCid($cate['id']);
 			if($prosSmall &&is_array($prosSmall)):
 			foreach($prosSmall as $proSmall):
