@@ -27,7 +27,7 @@ checkUserLogined();
                 }
             ?>
             
-            </b>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="icon icon_i">首页</a><span></span><a href="#" class="icon icon_j">前进</a><span></span><a href="#" class="icon icon_t">后退</a><span></span><a href="#" class="icon icon_n">刷新</a><span></span><a href="doAdminAction.php?act=logout" class="icon icon_e">退出</a>
+            </b>&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.php" class="icon icon_i">首页</a><span></span><a href="#" class="icon icon_j">前进</a><span></span><a href="#" class="icon icon_t">后退</a><span></span><a href="#" class="icon icon_n">刷新</a><span></span><a href="doAdminAction.php?act=logout" class="icon icon_e">退出</a>
         </div>
     </div>
     <div class="content clearfix">
@@ -62,6 +62,17 @@ checkUserLogined();
                            
                         </dl>
                     </li>
+                    
+                    <li>
+
+                        <h3 onclick="show('menu3','change3')"><span onclick="show('menu3','change3')" id="change3">+</span>个人信息</h3>
+                        <dl id="menu3" style="display:none;">
+                            <dd><a href="#" target="mainFrame">修改信息</a></dd>
+                            <dd><a href="#" target="mainFrame">修改密码</a></dd>
+                            <dd><a href="#" target="mainFrame">找回密码</a></dd>
+                        </dl>
+                    </li>
+                    
                     
                 </ul>
             </div>

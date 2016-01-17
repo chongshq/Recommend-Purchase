@@ -29,7 +29,7 @@
 	<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
 		<tr>
 			<th>系统名称</th>
-			<td>电商平台</td>
+			<td>SE二手交易平台</td>
 		</tr>
 		<tr>
 			<th>开发团队</th>

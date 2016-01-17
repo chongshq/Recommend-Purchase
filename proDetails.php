@@ -42,7 +42,7 @@ $(document).ready(function() {
 	<div class="topBar">
 		<div class="comWidth">
 			<div class="leftArea">
-				<a href="#" class="collection">收藏慕课</a>
+				<a href="#" class="collection">收藏本站</a>
 			</div>
 			<div class="rightArea">
 				欢迎来到XX网！
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	<div class="logoBar">
 		<div class="comWidth">
 			<div class="logo fl">
-				<a href="#"><img src="images/logo.jpg" alt="慕课网"></a>
+				
 			</div>
 			<div class="search_box fl">
 				<input type="text" class="search_text fl">
@@ -377,7 +377,7 @@ $(document).ready(function() {
 					<div class="score_num">
 						4.7<i></i>
 					</div>
-					<p>共18939位慕课网友参与评分</p>
+					<p>共18939位网友参与评分</p>
 				</div>
 			</div>
 			<div class="review_tab">
@@ -405,7 +405,7 @@ $(document).ready(function() {
 							<div class="starsBox fl"><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span></div>
 							<span class="stars_text fl">5分 满意</span>
 						</div>
-						<p>赖慕课挺不错的信赖慕课挺不错的，信赖慕课</p>
+						<p>挺不错的，信赖xx网</p>
 						<p><a href="#" class="ding">顶(0)</a><a href="#" class="cai">踩(0)</a></p>
 					</div>
 				</div>
@@ -422,7 +422,7 @@ $(document).ready(function() {
 							<div class="starsBox fl"><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span></div>
 							<span class="stars_text fl">5分 满意</span>
 						</div>
-						<p>赖慕课挺不错的信赖慕课挺不错的，信赖慕课</p>
+						<p>挺不错的，信赖xx网</p>
 						<p><a href="#" class="ding">顶(0)</a><a href="#" class="cai">踩(0)</a></p>
 					</div>
 				</div>
@@ -433,15 +433,15 @@ $(document).ready(function() {
 </div>
 <div class="hr_25"></div>
 <div class="footer">
-	<p><a href="#">慕课简介</a><i>|</i><a href="#">慕课公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
-	<p>Copyright &copy; 2006 - 2014 慕课版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：123456789123</p>
-	<p class="web"><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a><a href="#"><img src="images/webLogo.jpg" alt="logo"></a></p>
+	<p><a href="#">简介</a><i>|</i><a href="#">公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>
+	<p>Copyright &copy; 2006 - 2014 版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：123456789123</p>
+	<p class="web"><a href="#"><img src="images/webLogo.jpg" alt="logo"></a></p>
 </div>
 </body>
 <script type="text/javascript">
 function gotoPay(){
     var number=document.getElementById("itemNum").value;
-	window.location='pay.php?itemId=<?php echo $proInfo['id'];?>&itemName=<?php echo $proInfo['pName'];?>&price=<?php echo $proInfo['iPrice'];?>&userId=<?php echo $_SESSION['username'];?>&itemNum='+number;
+	window.location='pay.php?type=create&itemId=<?php echo $proInfo['id'];?>&itemName=<?php echo $proInfo['pName'];?>&price=<?php echo $proInfo['iPrice'];?>&userId=<?php echo $_SESSION['username'];?>&itemNum='+number;
 }
 </script>
 </html>

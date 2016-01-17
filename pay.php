@@ -1,7 +1,13 @@
 <?php
 require_once 'include.php';
 checkUserLogined();
-generateOrder($_SESSION['id']);
+if($_GET['type']=="create"){
+  $res=generateOrder($_SESSION['id']);
+}
+else{
+  $res=$_GET['orderId'];
+}
+
 ?>
 <html><head><script async="" src="https://webpushgw.alipay.com/polling?_callback=jQuery17205243136109784245_1452692568865&amp;biztype=cashier&amp;uid=2016011321001001000293734467&amp;cid=749a52f9-16e8-40d7-befc-1588e18006af&amp;timeout=30000&amp;_input_charset=utf-8&amp;ctoken=witheYzfFVPuLdTm&amp;_=1452692573554"></script>
 <meta charset="utf-8">
@@ -751,7 +757,7 @@ if (!window._to) {
                 <span class="standardPwdContainer" style="display:none">
           <input type="password" tabindex="1" id="payPassword_input" name="payPassword_input" class="ui-input" oncontextmenu="return false" onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" seed="standardPwdContainer-payPassword_input" smartracker="on">
         </span>
-        <span class="alieditContainer" id="payPassword_container"><input type="password" tabindex="1" id="payPassword_rsainput" name="payPassword_rsainput" class="ui-input i-text sixDigitPassword" oncontextmenu="return false" onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" value="" maxlength="6" minlength="6" style="outline: none; margin-left: -999px;"><div class="sixDigitPassword" tabindex="0" style="width: 180px;"><i class="" style="width: 29px; border-color: transparent;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><span style="width: 29px; visibility: hidden; left: 0px;"></span></div></span>
+        <span class="alieditContainer" id="payPassword_container"><input type="password" tabindex="1" id="payPassword_rsainput" name="payPassword_rsainput" class="ui-input i-text sixDigitPassword" oncontextmenu="return false" onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" value="" maxlength="6" minlength="6" style="outline: none; margin-left: -999px;"><div class="sixDigitPassword" tabindex="0" style="width: 180px;display:none;"><i class="" style="width: 29px; border-color: transparent;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><i style="width: 29px;"><b style="visibility: hidden;"></b></i><span style="width: 29px; visibility: hidden; left: 0px;"></span></div></span>
 
         <span class="ui-form-other edit-link">
           <a target="_blank" href="https://lab.alipay.com/user/passwordfind/index.htm?type=P" seed="sc_edit_forgetPwd">忘记密码？</a>        </span>
@@ -989,9 +995,14 @@ if (!window._to) {
 
                 </div>
             
-      <div id="J-rcSubmit"><div class="ui-fm-item ui-fm-action j-submit" data-reactid=".1"><input class="ui-button ui-button-lblue" id="J_authSubmit" type="submit" value="确认付款" data-reactid=".1.0"><span class="ui-fm-status fn-hide" data-reactid=".1.1"> 正在提交中... </span></div></div>
+      <div id="J-rcSubmit"><div class="ui-fm-item ui-fm-action j-submit" data-reactid=".1"><input class="ui-button ui-button-lblue" id="J_authSubmit" onclick="confirm()" value="确认付款" data-reactid=".1.0"><span class="ui-fm-status fn-hide" data-reactid=".1.1"> 正在提交中... </span></div></div>
     </form>
   </div>
+  <script type="text/javascript">
+      function confirm(){
+         window.location="confirm.php?orderId=<?php echo $res?>";
+      }
+  </script>
         <!-- CMS:收银台cms/light_fast/creditExpressCharge.vm开始:light_fast/creditExpressCharge.vm --><script id="CMS-cashier-creditExpressCharge" type="text/template">
 <div class='ui-dialog-header ui-dialog-header-fix'>
     <span>手续费计算（元）</span>

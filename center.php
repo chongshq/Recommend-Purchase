@@ -40,7 +40,7 @@ require_once './include.php';
 			$pros=getAllOrderByUserId($_SESSION['id']);
 			
 			foreach($pros as $pro):
-			
+			$name=$pro['itemName'];
 		?>
 			<tr>
 				
@@ -50,7 +50,24 @@ require_once './include.php';
 				<td align="center"><?php echo $pro['itemNum'];?></td>
 				<td align="center"><?php echo $pro['price'];?></td>
 				<td align="center"><?php echo $pro['address'];?></td>
-				<td align="center"><?php echo $pro['status'];?></td>
+				
+				<?php
+                    if($pro['status']=="100"){
+				?>
+                    <td align="center"><a href="javascript:repay(<?php echo $pro['itemId'];?>,<?php echo $pro['price'];?>,<?php echo $_SESSION['id'];?>,<?php echo $pro['itemNum'];?>,<?php echo $pro['orderId'];?>);">待付款</a></td>
+
+                <?php
+                   }
+                ?>
+                <?php
+                    if($pro['status']=="101"){
+				?>
+                    <td align="center">已付款</td>
+
+                <?php
+                   }
+                ?>
+
 			</tr>
 			<?php 
 			endforeach;
@@ -64,12 +81,14 @@ require_once './include.php';
 
 
 <script type="text/javascript">
-
-	function cancelApply(id){
-			if(window.confirm("您确定要取消申请吗？取消之后不可以恢复哦！！！")){
-				window.location="doAction.php?act=cancelApply&id="+id;
-			}
-	}
+function repay(itemid,p,id,num,orderid){
+//alert("xx");
+	//var number=document.getElementById("itemNum").value;
+	if(window.confirm("您确定要现在付款吗")){
+	window.open("pay.php?type=repay&itemId="+itemid+"&price="+p+"&userId="+id+"&itemNum="+num+"&orderId="+orderid);
+    }
+}
+	
 </script>
 </body>
 </html>

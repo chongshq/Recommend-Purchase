@@ -5,7 +5,7 @@ function generateOrder($userid){
 
 	$arr['userId']=$userid;
 	$arr['address']="default address";
-	$arr['status']="待付款";
+	$arr['status']="100";
 	$arr['time']=time();
 	$single=$arr['price'];
 	$arr['price']=$single * $arr['itemNum'];
@@ -20,12 +20,51 @@ function generateOrder($userid){
     "status" => $arr['status'],
     ];
     $res=insert("orders",$arra);
-    echo  $res.$arr['userId']."+".$arr['itemId']."+".$arr['itemName']."+".$arr['itemNum']."+".$arr['time']."+".$arr['price']."+".$arr['address']."+".$arr['status'];
+    return $res;
+    //echo  $res.$arr['userId']."+".$arr['itemId']."+".$arr['itemName']."+".$arr['itemNum']."+".$arr['time']."+".$arr['price']."+".$arr['address']."+".$arr['status'];
 }
+/**
+ * 列出所有订单
+ * @return array
+ */
 function getAllOrderByUserId($userId){
 	$sql="select * from stu_1352890.orders where userId={$userId}";
 	$rows=fetchAll($sql);
 	return $rows;
+}
+
+/**
+ *更新订单
+ * @param int id
+ * @return string
+ */
+function updateOrder($id,$userid){
+//echo $id;
+	$sql="select * from stu_1352890.orders where orderId={$id}";
+	$arr=fetchOne($sql);
+	//$arr['orderId']=2;
+
+	
+	$arr['status']="101";
+	$arr['time']=time();
+	//$single=$arr['price'];
+	//$arr['price']=$single * $arr['itemNum'];
+	$arra = [
+    "userId" => $arr['userId'],
+    "itemId" => $arr['itemId'],
+    "itemName" => $arr['itemName'],
+    "itemNum" => $arr['itemNum'],
+    "time" => $arr['time'],
+    "price" => $arr['price'],
+    "address" => $arr['address'],
+    "status" => $arr['status'],
+    ];
+    $whereOrder="orderId={$id}";
+    $res=update("orders",$arra,$whereOrder);
+    if(!$res){
+        return false;
+    }
+    return true;
 }
 /**
  * 添加商品

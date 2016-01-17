@@ -1,7 +1,7 @@
 <?php 
 require_once '../include.php';
 checkLogined();
-$sql="select id,username,email,activeFlag from imooc_user";
+$sql="select id,username,email,activeFlag from se_user";
 $rows=fetchAll($sql);
 if(!$rows){
 	alertMes("sorry,没有用户,请添加!","addUser.php");

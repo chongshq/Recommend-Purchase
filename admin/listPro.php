@@ -7,7 +7,7 @@ $orderBy=$order?"order by p.".$order:null;
 $keywords=$_REQUEST['keywords']?$_REQUEST['keywords']:null;
 $where=$keywords?"where p.pName like '%{$keywords}%'":null;
 //得到数据库中所有商品
-$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from imooc_pro as p join imooc_cate c on p.cId=c.id {$where}  ";
+$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from se_pro as p join se_cate c on p.cId=c.id {$where}  ";
 $totalRows=getResultNum($sql);
 $pageSize=10;
 $totalPage=ceil($totalRows/$pageSize);
@@ -15,7 +15,7 @@ $page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
 if($page<1||$page==null||!is_numeric($page))$page=1;
 if($page>$totalPage)$page=$totalPage;
 $offset=($page-1)*$pageSize;
-$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from imooc_pro as p join imooc_cate c on p.cId=c.id {$where} {$orderBy} limit {$offset},{$pageSize}";
+$sql="select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from se_pro as p join se_cate c on p.cId=c.id {$where} {$orderBy} limit {$offset},{$pageSize}";
 $rows=fetchAll($sql);
 ?>
 <!doctype html>
@@ -75,7 +75,7 @@ $rows=fetchAll($sql);
                                 <th width="10%">商品分类</th>
                                 <th width="10%">是否上架</th>
                                 <th width="15%">上架时间</th>
-                                <th width="10%">慕课价格</th>
+                                <th width="10%">本站价格</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
